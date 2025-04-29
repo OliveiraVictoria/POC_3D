@@ -1,12 +1,21 @@
 import pyvista as pv
 import numpy as np  # Para manipulação numérica
+import os  # Para lidar com caminhos de arquivos
 
 print('VISUALIZAÇÃO POC')
 
+# Subpasta onde estão os arquivos .stl
+pasta_modelos = "stl"  # Subpasta 'stl' dentro da pasta atual
+
+# Caminhos relativos para os arquivos .stl
+caminho_modelo_1 = os.path.join(pasta_modelos, "casing.STL")
+caminho_modelo_2 = os.path.join(pasta_modelos, "tubing.STL")
+caminho_modelo_3 = os.path.join(pasta_modelos, "poc.STL")
+
 # Carregar os modelos .stl
-modelo_1 = pv.read("casing.STL")  # Substitua pelo nome do primeiro arquivo
-modelo_2 = pv.read("tubing.STL")  # Substitua pelo nome do segundo arquivo
-modelo_3 = pv.read("poc.STL")  # Substitua pelo nome do terceiro arquivo
+modelo_1 = pv.read(caminho_modelo_1)  # Casing
+modelo_2 = pv.read(caminho_modelo_2)  # Tubing
+modelo_3 = pv.read(caminho_modelo_3)  # POC
 
 # Criar o plotter para visualização
 plotter = pv.Plotter()
